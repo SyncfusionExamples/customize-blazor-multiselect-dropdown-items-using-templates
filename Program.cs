@@ -1,7 +1,8 @@
-using DropDownItemUsingTempalte.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Syncfusion.Blazor;
+using DropDownItemUsingTemplate.Components;
+using DropDownItemUsingTemplate.Components.Routing;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
