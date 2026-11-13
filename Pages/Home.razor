@@ -1,0 +1,61 @@
+﻿@page "/"
+
+<div class="control_wrapper">
+    <SfMultiSelect TValue="string[]" TItem="EmployeeDataModel" Placeholder="Select a name"
+                   DataSource="@EmployeeData" PopupHeight="350px" PopupWidth="250px">
+        <MultiSelectFieldSettings Text="Name" Value="ID"></MultiSelectFieldSettings>
+        <MultiSelectTemplates TItem="EmployeeDataModel">
+            <ItemTemplate>
+                <div class="list-wrapper">
+                    <img class="empImage" src="images/employee/@((context as EmployeeDataModel).Image).png"
+                         alt="employee" />
+                    <div class="ename"> @((context as EmployeeDataModel).Name)</div>
+                </div>
+            </ItemTemplate>
+            <HeaderTemplate>
+                <div class="header">
+                    <span>Photo</span>
+                    <span class="info">Employee Name</span>
+                </div>
+            </HeaderTemplate>
+            <FooterTemplate>
+                <div class="footer">
+                    <span>Total list items: 8 </span>
+                </div>
+            </FooterTemplate>
+            <ValueTemplate>
+                <div>
+                    <img class="value" height="23" width="23" src="images/employee/@((context as EmployeeDataModel).Image).png"
+                         alt="employee" />
+                    <div class="name">@((context as EmployeeDataModel).Name)</div>
+                </div>
+            </ValueTemplate>
+            @*<NoRecordsTemplate>
+            <div>
+            <span>No Data Available</span>
+            </div>
+            </NoRecordsTemplate>*@
+        </MultiSelectTemplates>
+    </SfMultiSelect>
+</div>
+
+@code {
+
+    public class EmployeeDataModel
+    {
+        public string Name { get; set; }
+        public string ID { get; set; }
+        public string Image { get; set; }
+    }
+    List<EmployeeDataModel> EmployeeData = new List<EmployeeDataModel>
+{
+        new EmployeeDataModel() { Name = "Andrew Fuller", ID="Employee 1", Image= "E1" },
+        new EmployeeDataModel() { Name = "Anne Dodsworth", ID="Employee 2",  Image= "E2" },
+        new EmployeeDataModel() { Name = "Janet Leverling", ID="Employee 3",  Image= "E3" },
+        new EmployeeDataModel() { Name = "Laura Callahan", ID="Employee 4",  Image= "E4" },
+        new EmployeeDataModel() { Name = "Margaret", ID="Employee 5",  Image= "E5" },
+        new EmployeeDataModel() { Name = "Michael Suyama", ID="Employee 6",  Image= "E6" },
+        new EmployeeDataModel() { Name = "Nancy Davolio", ID="Employee 7",  Image= "E7" },
+        new EmployeeDataModel() { Name = "Robert King", ID="Employee 8",  Image= "E8" }
+    };
+}
